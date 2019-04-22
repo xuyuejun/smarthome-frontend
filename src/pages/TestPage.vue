@@ -2,6 +2,9 @@
     <div class="row">
         <!--<card :body-style="{ padding: '0px' }">-->
         <card title="Test" subTitle="test2">
+            <el-button type="primary" @click="getNews">获取新闻</el-button>
+            <el-button type="primary" @click="getNewsTwo">获取新闻2</el-button>
+            <el-button type="primary" @click="getWeather">天气</el-button>
             <div class="table-full-width table-responsive">
                 <el-table
                     :data="tableData"
@@ -29,6 +32,7 @@
 </template>
 <script>
 import { PaperTable } from "@/components";
+import api from '@/api/test_api.js';
 
 export default {
     components: {
@@ -36,6 +40,12 @@ export default {
     },
     data() {
         return {
+            newsData: '',
+            newsDataBody: [{
+                pageSize: '6',
+                pageIndex: '0',
+                copyright: 'osc'
+            }],
             tableData: [{
                 date: '2016-05-02',
                 name: '王小虎',
@@ -52,8 +62,30 @@ export default {
                 date: '2016-05-03',
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
+            }],
+            weatherData: [{
+                cityname: '莱芜',
+                format: '2',
+                key: '089715687549aadad2d391f94f5b5dd7'
             }]
         };
+    },
+    methods: {
+        getNews() {
+            this.axios.post("http://api.komavideo.com/news/list").then(body => {
+                this.newsData = body.data;
+            })
+        },
+        getNewsTwo() {
+            api.getnew(this.newsDataBody).then(({ data }) => {
+                this.newsData = body.data;
+            })
+        },
+        getWeather() {
+            api.getWeather(this.weatherData).then(({ data }) => {
+                console.log("获取天气数据")
+            })
+        }
     }
 };
 </script>
