@@ -1,7 +1,61 @@
+//{
+//  "root": true,
+//  "extends": [
+//    "plugin:vue/essential",
+//    "@vue/prettier"
+//  ]
+//}
 {
-  "root": true,
-  "extends": [
-    "plugin:vue/essential",
-    "@vue/prettier"
-  ]
+    "root": true,
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "node": false
+    },
+    "globals": {
+        "loggerD": false,
+        "loggerE": false
+    },
+    "extends": [
+        "standard",
+        "plugin:vue/essential"
+    ],
+    "plugins": [
+        "standard",
+        "vue"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "space-before-function-paren": "off",
+        "eqeqeq": "warn",
+        "no-console": "warn",
+        "no-new": "warn",
+        "no-fallthrough": "warn",
+        "no-unreachable": "warn",
+        "no-empty": "warn",
+        "no-eq-null": "warn",
+        "vue/no-parsing-error": [
+            2,
+            {
+                "x-invalid-end-tag": false
+            }
+        ]
+    }
 }
