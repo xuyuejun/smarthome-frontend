@@ -1,4 +1,3 @@
-import Notify from "vue-notifyjs";
 import SideBar from "@/components/SidebarPlugin";
 import GlobalComponents from "./globalComponents";
 import GlobalDirectives from "./globalDirectives";
@@ -14,6 +13,5 @@ export default {
         Vue.use(GlobalComponents);
         Vue.use(GlobalDirectives);
         Vue.use(SideBar);
-        Vue.use(Notify);
     }
 };

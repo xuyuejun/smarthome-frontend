@@ -11,8 +11,7 @@
                     <div
                         class="icon-big text-center"
                         :class="`icon-${stats.type}`"
-                        slot="header"
-                    >
+                        slot="header">
                         <i :class="stats.icon"></i>
                     </div>
                     <div class="numbers" slot="content">
@@ -33,16 +32,14 @@
                     title="Users behavior"
                     sub-title="24 Hours performance"
                     :chart-data="usersChart.data"
-                    :chart-options="usersChart.options"
-                >
+                    :chart-options="usersChart.options">
                     <span slot="footer">
                         <i class="ti-reload"></i> Updated 3 minutes ago
                     </span>
                     <div slot="legend">
                         <i class="fa fa-circle text-info"></i> Open
                         <i class="fa fa-circle text-danger"></i> Click
-                        <i class="fa fa-circle text-warning"></i> Click Second
-                        Time
+                        <i class="fa fa-circle text-warning"></i> Click Second Time
                     </div>
                 </chart-card>
             </div>
@@ -52,11 +49,9 @@
                     title="Email Statistics"
                     sub-title="Last campaign performance"
                     :chart-data="preferencesChart.data"
-                    chart-type="Pie"
-                >
+                    chart-type="Pie">
                     <span slot="footer">
-                        <i class="ti-timer"></i> Campaign set 2 days ago</span
-                    >
+                        <i class="ti-timer"></i> Campaign set 2 days ago</span>
                     <div slot="legend">
                         <i class="fa fa-circle text-info"></i> Open
                         <i class="fa fa-circle text-danger"></i> Bounce

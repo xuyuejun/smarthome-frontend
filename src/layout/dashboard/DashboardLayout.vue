@@ -25,6 +25,11 @@
                     name="Notifications"
                     icon="ti-bell"
                 />
+                <sidebar-link
+                    to="/test-page"
+                    name="TestPage"
+                    icon="ti-clipboard"
+                />
             </template>
             <mobile-menu>
                 <li class="nav-item">

@@ -6,9 +6,7 @@
                     <h4 class="card-title">Paper Dashboard Headings</h4>
                     <p class="card-category">
                         Created using
-                        <a href="https://www.google.com/fonts/specimen/Muli"
-                            >Muli</a
-                        >
+                        <a href="https://www.google.com/fonts/specimen/Muli">Muli</a>
                         Font Family
                     </p>
                 </template>
@@ -81,9 +79,7 @@
                         </p>
                     </div>
                     <div class="typo-line">
-                        <!--
-               there are also "text-info", "text-success", "text-warning", "text-danger" clases for the text
-               -->
+                        <!--there are also "text-info", "text-success", "text-warning", "text-danger" clases for the text-->
                         <p class="category">Coloured Text</p>
                         <p class="text-primary">
                             Text Primary - Light Bootstrap Table Heading and
@@ -202,9 +198,7 @@
                             inline code element. Wrap inline code within a
                             <code> &lt;code&gt;...&lt;/code&gt;</code>tag.
                         </p>
-                        <pre>
-1. #This is an example of preformatted text. 2. #Here is another line of code</pre
-                        >
+                        <pre>1. #This is an example of preformatted text. 2. #Here is another line of code</pre>
                     </div>
                 </div>
             </card>
