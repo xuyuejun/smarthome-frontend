@@ -5,6 +5,7 @@
             <el-button type="primary" @click="getNews">获取新闻</el-button>
             <el-button type="primary" @click="getNewsTwo">获取新闻2</el-button>
             <el-button type="primary" @click="getWeather">天气</el-button>
+            <el-button type="primary" @click="flaskTest">本地测试</el-button>
             <div class="table-full-width table-responsive">
                 <el-table
                     :data="tableData"
@@ -41,6 +42,10 @@ export default {
     data() {
         return {
             newsData: '',
+            loginData: [{
+                username: 'zhangsan',
+                password: '123'
+            }],
             newsDataBody: [{
                 pageSize: '6',
                 pageIndex: '0',
@@ -84,6 +89,11 @@ export default {
         getWeather() {
             api.getWeather(this.weatherData).then(({ data }) => {
                 console.log("获取天气数据")
+            })
+        },
+        flaskTest() {
+            api.flaskLogin(this.loginData).then(({ data }) => {
+                console.log("获取flasktask")
             })
         }
     }

@@ -17,5 +17,14 @@ export default {
             method: 'post',
             data: body
         })
+    },
+    flaskLogin (body) {
+        return axios({
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            url: '/login',
+            baseURL: 'http://127.0.0.1:5000',
+            method: 'post',
+            data: body
+        })
     }
 }

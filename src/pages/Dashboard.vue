@@ -1,12 +1,33 @@
 <template>
     <div>
+        <!--XiaoMi smart socket cards-->
+        <div class="row">
+            <div class="col-md-6 col-xl-3">
+                <stats-card>
+                    <div
+                        class="icon-big text-center"
+                        slot="header">
+                        <img src="../icon/smart-controller.png"/>
+                        <!--<i :class="stats.icon"></i>-->
+                    </div>
+                    <div class="numbers" slot="content">
+                        <p>智能插座</p>
+                        开启
+                    </div>
+                    <div class="stats" slot="footer">
+                        <span class="ti-reload"></span>
+                        <!--<i :class="stats.footerIcon"></i>-->
+                        在线状态
+                    </div>
+                </stats-card>
+            </div>
+        </div>
         <!--Stats cards-->
         <div class="row">
             <div
                 class="col-md-6 col-xl-3"
                 v-for="stats in statsCards"
-                :key="stats.title"
-            >
+                :key="stats.title">
                 <stats-card>
                     <div
                         class="icon-big text-center"
@@ -96,9 +117,9 @@ export default {
                 {
                     type: "warning",
                     icon: "ti-server",
-                    title: "Capacity",
-                    value: "105GB",
-                    footerText: "Updated now",
+                    title: "智能插座",
+                    value: "开启",
+                    footerText: "在线状态",
                     footerIcon: "ti-reload"
                 },
                 {
