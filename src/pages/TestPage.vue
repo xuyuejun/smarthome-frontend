@@ -68,11 +68,11 @@ export default {
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
             }],
-            weatherData: [{
+            weatherData: {
                 cityname: '莱芜',
                 format: '2',
                 key: '089715687549aadad2d391f94f5b5dd7'
-            }]
+            }
         };
     },
     methods: {
@@ -87,6 +87,17 @@ export default {
             })
         },
         getWeather() {
+            // let instance = axios.create({
+            //     headers: {
+            //         'Access-Control-Allow-Origin': '*'
+            //     }
+            // })
+            // this.axios
+            //     .post('http://v.juhe.cn/weather/index', this.weatherData,
+            //     )
+            //     .then(data => {
+            //         console.log(data.data)
+            //     })
             api.getWeather(this.weatherData).then(({ data }) => {
                 console.log("获取天气数据")
             })

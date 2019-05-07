@@ -3,10 +3,14 @@ import axios from 'axios'
 export default {
     getWeather (body) {
         return axios({
+            // headers: {
+            //     'content-type': 'application/x-www-form-urlencoded'
+            // },
+            // credentials: 'same-origin',
             url: '/weather/index',
             baseURL: 'http://v.juhe.cn',
             withCredentials: true,
-            method: 'jsonp',
+            method: 'get',
             data: body
         })
     },
@@ -20,7 +24,8 @@ export default {
     },
     flaskLogin (body) {
         return axios({
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            withCredentials: true,
+            credentials: 'same-origin',
             url: '/login',
             baseURL: 'http://127.0.0.1:5000',
             method: 'post',
