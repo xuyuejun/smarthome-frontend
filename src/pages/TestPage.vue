@@ -42,10 +42,10 @@ export default {
     data() {
         return {
             newsData: '',
-            loginData: [{
+            loginData: {
                 username: 'zhangsan',
                 password: '123'
-            }],
+            },
             newsDataBody: [{
                 pageSize: '6',
                 pageIndex: '0',
@@ -106,6 +106,12 @@ export default {
             api.flaskLogin(this.loginData).then(({ data }) => {
                 console.log("获取flasktask")
             })
+            // api.getnew('http://127.0.0.1:5000/login').then(({ data }) => {
+            //     this.newsData = body.data;
+            // })
+            // this.axios.post("http://127.0.0.1:5000/login", this.loginData).then(body => {
+            //     this.newsData = body.data;
+            // })
         }
     }
 };

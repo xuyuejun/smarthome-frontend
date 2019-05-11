@@ -12,7 +12,7 @@ Vue.use(PaperDashboard);
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios);
 
-// Vue.axios.defaults.baseURL = config.url;
+Vue.axios.defaults.baseURL = 'http://127.0.0.1:5000';
 Vue.axios.defaults.headers.post['Content-Type'] = 'application/json';
 Vue.axios.defaults.headers.get['Content-Type'] = 'application/json';
 
