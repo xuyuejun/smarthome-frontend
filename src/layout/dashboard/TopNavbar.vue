@@ -23,17 +23,13 @@
                     </li>
                     <drop-down
                         class="nav-item"
-                        title="5 Notifications"
+                        title="Language"
                         title-classes="nav-link"
-                        icon="ti-bell"
+                        icon="ti-world"
                     >
-                        <a class="dropdown-item" href="#">Notification 1</a>
-                        <a class="dropdown-item" href="#">Notification 2</a>
-                        <a class="dropdown-item" href="#">Notification 3</a>
-                        <a class="dropdown-item" href="#">Notification 4</a>
-                        <a class="dropdown-item" href="#"
-                            >Another notification</a
-                        >
+                        <a class="dropdown-item" href="#">中文</a>
+                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="#">日本語</a>
                     </drop-down>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
