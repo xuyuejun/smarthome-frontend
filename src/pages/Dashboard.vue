@@ -88,44 +88,10 @@
         <div class="row">
             <div class="col-12">
                 <chart-card
-                    title="Users behavior"
-                    sub-title="24 Hours performance"
-                    :chart-data="usersChart.data"
-                    :chart-options="usersChart.options">
-                    <span slot="footer">
-                        <i class="ti-reload"></i> Updated 3 minutes ago
-                    </span>
-                    <div slot="legend">
-                        <i class="fa fa-circle text-info"></i> Open
-                        <i class="fa fa-circle text-danger"></i> Click
-                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                    </div>
-                </chart-card>
-            </div>
-
-            <div class="col-md-6 col-12">
-                <chart-card
-                    title="Email Statistics"
-                    sub-title="Last campaign performance"
-                    :chart-data="preferencesChart.data"
-                    chart-type="Pie">
-                    <span slot="footer">
-                        <i class="ti-timer"></i> Campaign set 2 days ago</span>
-                    <div slot="legend">
-                        <i class="fa fa-circle text-info"></i> Open
-                        <i class="fa fa-circle text-danger"></i> Bounce
-                        <i class="fa fa-circle text-warning"></i> Unsubscribe
-                    </div>
-                </chart-card>
-            </div>
-
-            <div class="col-md-6 col-12">
-                <chart-card
-                    title="2015 Sales"
+                    title="24小时温度"
                     sub-title="All products including Taxes"
                     :chart-data="activityChart.data"
-                    :chart-options="activityChart.options"
-                >
+                    :chart-options="activityChart.options">
                     <span slot="footer">
                         <i class="ti-check"></i> Data information certified
                     </span>
@@ -222,47 +188,25 @@ export default {
             activityChart: {
                 data: {
                     labels: [
-                        "Jan",
-                        "Feb",
-                        "Mar",
-                        "Apr",
-                        "Mai",
-                        "Jun",
-                        "Jul",
-                        "Aug",
-                        "Sep",
-                        "Oct",
-                        "Nov",
-                        "Dec"
+                        "0点",
+                        "3点",
+                        "6点",
+                        "9点",
+                        "12点",
+                        "15点",
+                        "18点",
+                        "21点",
                     ],
                     series: [
                         [
-                            542,
-                            543,
-                            520,
-                            680,
-                            653,
-                            753,
-                            326,
-                            434,
-                            568,
-                            610,
-                            756,
-                            895
-                        ],
-                        [
-                            230,
-                            293,
-                            380,
-                            480,
-                            503,
-                            553,
-                            600,
-                            664,
-                            698,
-                            710,
-                            736,
-                            795
+                            14.2,
+                            13.3,
+                            18.7,
+                            20.6,
+                            24.5,
+                            26.9,
+                            18.5,
+                            16.3
                         ]
                     ]
                 },
