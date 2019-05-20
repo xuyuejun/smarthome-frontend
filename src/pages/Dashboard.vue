@@ -53,7 +53,7 @@
                     </div>
                     <div class="numbers" slot="content">
                         <p>温度计</p>
-                        开启
+                        21.5℃
                     </div>
                     <div class="stats" slot="footer">
                         <span class="ti-reload"></span>
@@ -68,12 +68,12 @@
                     <div
                         class="icon-big text-center"
                         slot="header">
-                        <img src="../icon/thermometer.png"/>
+                        <img src="../icon/humidity.png"/>
                         <!--<i :class="stats.icon"></i>-->
                     </div>
                     <div class="numbers" slot="content">
-                        <p>摄像头</p>
-                        开启
+                        <p>湿度计</p>
+                        60.0%
                     </div>
                     <div class="stats" slot="footer">
                         <span class="ti-reload"></span>
@@ -89,7 +89,7 @@
             <div class="col-12">
                 <chart-card
                     title="24小时温度"
-                    sub-title="All products including Taxes"
+                    sub-title="2019年 5月20日"
                     :chart-data="activityChart.data"
                     :chart-options="activityChart.options">
                     <span slot="footer">
