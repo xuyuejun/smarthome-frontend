@@ -5,6 +5,7 @@ import NotFound from "@/pages/NotFoundPage.vue";
 // Admin pages
 import Dashboard from "@/pages/Dashboard.vue";
 import UserProfile from "@/pages/UserProfile.vue";
+import Socket from "@/pages/SmartSocket/controlPage.vue"
 import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
@@ -26,6 +27,11 @@ const routes = [
                 path: "stats",
                 name: "stats",
                 component: UserProfile
+            },
+            {
+                path: "socket",
+                name: "socket",
+                component: Socket
             },
             {
                 path: "icons",
