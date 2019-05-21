@@ -5,11 +5,11 @@
                 <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
                 <sidebar-link to="/stats" name="User Profile" icon="ti-user" />
                 <sidebar-link to="/socket" name="SMART SOCKET" icon="ti-bolt" />
+                <sidebar-link to="/camera" name="Camera" icon="ti-camera"/>
                 <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/>
                 <sidebar-link to="/typography" name="Typography" icon="ti-text"/>
                 <sidebar-link to="/icons" name="Icons" icon="ti-pencil-alt2" />
                 <sidebar-link to="/maps" name="Map" icon="ti-map" />
-                <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
                 <sidebar-link to="/test-page" name="TestPage" icon="ti-clipboard"/>
             </template>
             <mobile-menu>

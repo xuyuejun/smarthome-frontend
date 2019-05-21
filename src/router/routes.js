@@ -5,7 +5,8 @@ import NotFound from "@/pages/NotFoundPage.vue";
 // Admin pages
 import Dashboard from "@/pages/Dashboard.vue";
 import UserProfile from "@/pages/UserProfile.vue";
-import Socket from "@/pages/SmartSocket/controlPage.vue"
+import Socket from "@/pages/SmartSocket/controlPage.vue";
+import Camera from "@/pages/Camera/CameraPage.vue";
 import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
@@ -32,6 +33,11 @@ const routes = [
                 path: "socket",
                 name: "socket",
                 component: Socket
+            },
+            {
+                path: "camera",
+                name: "camera",
+                component: Camera
             },
             {
                 path: "icons",
