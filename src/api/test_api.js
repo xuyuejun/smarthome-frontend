@@ -20,7 +20,7 @@ export default {
     },
     flaskLogin (body) {
         return axios({
-            url: '/login',
+            url: '/test/login',
             method: 'post',
             data: body
         })

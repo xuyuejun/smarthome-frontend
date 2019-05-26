@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import servoApi from '@/api/servo.js';
 export default {
     name: "CameraPage",
     data () {
@@ -53,7 +54,9 @@ export default {
     },
     methods: {
         horizontalChange() {
-            console.log("水平改变")
+            servoApi.servoHorizontal(this.PTZ.Horizontal).then(({ data }) => {
+                console.log(data)
+            })
         }
     },
     created(){
