@@ -48,17 +48,17 @@
                     <div
                         class="icon-big text-center"
                         slot="header">
-                        <img src="../icon/thermometer.png"/>
+                        <img src="../icon/thermometer.png" @click="getTemperature"/>
                         <!--<i :class="stats.icon"></i>-->
                     </div>
                     <div class="numbers" slot="content">
                         <p>温度计</p>
-                        21.5℃
+                        {{ this.temperature.data + "℃" }}
                     </div>
                     <div class="stats" slot="footer">
-                        <span class="ti-reload"></span>
+                        <span class="ti-reload" @click="getTemperature"></span>
                         <!--<i :class="stats.footerIcon"></i>-->
-                        在线状态
+                        {{ this.temperature.getTime }}
                     </div>
                 </stats-card>
             </div>
@@ -68,17 +68,17 @@
                     <div
                         class="icon-big text-center"
                         slot="header">
-                        <img src="../icon/humidity.png"/>
+                        <img src="../icon/humidity.png" @click="getHumidity"/>
                         <!--<i :class="stats.icon"></i>-->
                     </div>
                     <div class="numbers" slot="content">
                         <p>湿度计</p>
-                        60.0%
+                        {{ this.humidity.data + "%" }}
                     </div>
                     <div class="stats" slot="footer">
-                        <span class="ti-reload"></span>
+                        <span class="ti-reload" @click="getHumidity"></span>
                         <!--<i :class="stats.footerIcon"></i>-->
-                        在线状态
+                        {{ this.humidity.getTime }}
                     </div>
                 </stats-card>
             </div>
@@ -107,6 +107,7 @@
 <script>
 import { StatsCard, ChartCard } from "@/components/index";
 import Chartist from "chartist";
+import temApi from '@/api/temperature_humidity.js';
 export default {
     components: {
         StatsCard,
@@ -118,97 +119,18 @@ export default {
     data() {
         return {
             socketStatus: 1,
-            statsCards: [
-                {
-                    type: "warning",
-                    icon: "ti-server",
-                    title: "智能插座",
-                    value: "开启",
-                    footerText: "在线状态",
-                    footerIcon: "ti-reload"
-                },
-                {
-                    type: "success",
-                    icon: "ti-wallet",
-                    title: "Revenue",
-                    value: "$1,345",
-                    footerText: "Last day",
-                    footerIcon: "ti-calendar"
-                },
-                {
-                    type: "danger",
-                    icon: "ti-pulse",
-                    title: "Errors",
-                    value: "23",
-                    footerText: "In the last hour",
-                    footerIcon: "ti-timer"
-                },
-                {
-                    type: "info",
-                    icon: "ti-twitter-alt",
-                    title: "Followers",
-                    value: "+45",
-                    footerText: "Updated now",
-                    footerIcon: "ti-reload"
-                }
-            ],
-            usersChart: {
-                data: {
-                    labels: [
-                        "9:00AM",
-                        "12:00AM",
-                        "3:00PM",
-                        "6:00PM",
-                        "9:00PM",
-                        "12:00PM",
-                        "3:00AM",
-                        "6:00AM"
-                    ],
-                    series: [
-                        [287, 385, 490, 562, 594, 626, 698, 895, 952],
-                        [67, 152, 193, 240, 387, 435, 535, 642, 744],
-                        [23, 113, 67, 108, 190, 239, 307, 410, 410]
-                    ]
-                },
-                options: {
-                    low: 0,
-                    high: 1000,
-                    showArea: true,
-                    height: "245px",
-                    axisX: {
-                        showGrid: false
-                    },
-                    lineSmooth: Chartist.Interpolation.simple({
-                        divisor: 3
-                    }),
-                    showLine: true,
-                    showPoint: false
-                }
+            temperature: {
+                data: 0,
+                getTime: '温度计离线'
+            },
+            humidity: {
+                data: 0,
+                getTime: '湿度计离线'
             },
             activityChart: {
                 data: {
-                    labels: [
-                        "0点",
-                        "3点",
-                        "6点",
-                        "9点",
-                        "12点",
-                        "15点",
-                        "18点",
-                        "21点",
-                    ],
-                    series: [
-                        [
-                            14.2,
-                            13.3,
-                            18.7,
-                            20.6,
-                            24.5,
-                            26.9,
-                            18.5,
-                            16.3
-                        ]
-                    ]
+                    labels: ["0点", "3点", "6点", "9点", "12点", "15点", "18点", "21点",],
+                    series: [[14.2, 13.3, 18.7, 20.6, 24.5, 26.9, 18.5, 16.3]]
                 },
                 options: {
                     seriesBarDistance: 10,
@@ -217,15 +139,33 @@ export default {
                     },
                     height: "245px"
                 }
-            },
-            preferencesChart: {
-                data: {
-                    labels: ["62%", "32%", "6%"],
-                    series: [62, 32, 6]
-                },
-                options: {}
             }
         };
+    },
+    methods: {
+        getTemperatureHumidity() {
+            temApi.getTemperatureHumidity().then(({ data }) => {
+                this.temperature.data = data.temperature;
+                this.temperature.getTime = data.time;
+                this.humidity.data = data.humidity;
+                this.humidity.getTime = data.time;
+            })
+        },
+        getTemperature() {
+            temApi.getTemperatureHumidity().then(({ data }) => {
+                this.temperature.data = data.temperature;
+                this.temperature.getTime = data.time;
+            })
+        },
+        getHumidity() {
+            temApi.getTemperatureHumidity().then(({ data }) => {
+                this.humidity.data = data.humidity;
+                this.humidity.getTime = data.time;
+            })
+        }
+    },
+    mounted() {
+        this.getTemperatureHumidity();
     }
 };
 </script>
