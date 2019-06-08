@@ -2,8 +2,8 @@
     <div>
         <el-card>
             <div>
-                <img src='http://raspberrypi.local:8080/?action=stream' style="width: 100%" height="auto"/>
-                <!--<img src='../../images/mjpg-test.jpeg' style="width: 100%" maxhight="400px"/>-->
+                <img v-if="cameraOnline === true" src='http://raspberrypi.local:8080/?action=stream' style="width: 100%" height="auto"/>
+                <img v-if="cameraOnline === false" src='../../images/camera-offline.png' style="width: 100%" height="auto"/>
             </div>
             <el-card>
                 <div class="buttonCenter">
@@ -25,9 +25,11 @@
                     </div>
                 </div>
                 <div v-if="controlModel === 2">
-                    <div>
-                        参数设置界面
-                    </div>
+                    <el-form ref="form" :model="outputPlugin" label-width="80px">
+                        <el-form-item label="在线状态" prop="delivery">
+                            <el-switch v-model="cameraOnline"></el-switch>
+                        </el-form-item>
+                    </el-form>
                 </div>
             </el-card>
         </el-card>
@@ -36,10 +38,12 @@
 
 <script>
 import servoApi from '@/api/servo.js';
+import cameraApi from '@/api/camera.js';
 export default {
     name: "CameraPage",
     data () {
         return {
+            cameraOnline: true,
             controlModel: '1',  //控制
             PTZ: {
                 Horizontal: 90,
@@ -50,6 +54,9 @@ export default {
             value2: 0,
             num4: 10,
             num8: 0,
+            outputPlugin: {
+                name: ''
+            }
         }
     },
     methods: {
@@ -57,10 +64,21 @@ export default {
             servoApi.servoHorizontal(this.PTZ.Horizontal).then(({ data }) => {
                 console.log(data)
             })
+        },
+        cameraStatus() {
+            cameraApi.getCameraStatus().then(({ data }) => {
+                console.log(data);
+                if (data === "Camera is Online") {
+                    this.cameraOnline = true;
+                } else {
+                    this.cameraOnline = false;
+                }
+            })
         }
     },
     created(){
         this.controlModel = 1;
+        this.cameraStatus()
     }
 }
 </script>
