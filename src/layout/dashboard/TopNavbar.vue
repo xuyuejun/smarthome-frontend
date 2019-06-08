@@ -18,12 +18,12 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="ti-panel"></i>
-                            <p>Stats</p>
+                            <p>状态</p>
                         </a>
                     </li>
                     <drop-down
                         class="nav-item"
-                        title="Language"
+                        title="语言"
                         title-classes="nav-link"
                         icon="ti-world"
                     >
@@ -35,7 +35,7 @@
                         <a href="#" class="nav-link">
                             <i class="ti-settings"></i>
                             <p>
-                                Settings
+                                设置
                             </p>
                         </a>
                     </li>

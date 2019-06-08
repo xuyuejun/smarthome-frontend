@@ -18,7 +18,7 @@
                     </div>
                     <div class="stats" slot="footer">
                         <span class="ti-reload"></span>
-                        在线状态
+                        在线
                     </div>
                 </stats-card>
             </div>
@@ -38,7 +38,7 @@
                     <div class="stats" slot="footer">
                         <span class="ti-reload"></span>
                         <!--<i :class="stats.footerIcon"></i>-->
-                        在线状态
+                        在线
                     </div>
                 </stats-card>
             </div>
