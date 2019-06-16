@@ -49,7 +49,7 @@ export default {
     name: "CameraPage",
     data () {
         return {
-            cameraOnline: true,
+            cameraOnline: false,
             controlModel: '1',  //控制
             PTZ: {
                 Horizontal: 90,

@@ -1,22 +1,33 @@
 <template>
     <div>
         <el-card :body-style="{ padding: '0px' }">
-            <img src="../../images/background.jpg" class="image">
+            <div class="img2" :style="{backgroundImage: 'url(' + bg2 + ')' }">
+                <div class="typo-line">
+                    <h1>
+                        Paper Dashboard Heading
+                    </h1>
+                </div>
+            </div>
         </el-card>
     </div>
 </template>
 <script>
+    import Bg2 from '../../images/smartfarm-background.png'
+
     export default {
         data() {
             return {
-                currentDate: new Date()
+                currentDate: new Date(),
+                bg2:Bg2
             };
         }
     }
 </script>
 <style>
-    .image {
-        width: 500px;
-        display: block;
-    }
+.img2{
+    padding: 250px;
+    margin: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 </style>

@@ -13,12 +13,14 @@
                         <p>智能插座</p>
                         <!--开启-->
                         <el-switch
-                            v-model="socketStatus">
+                            v-model="socketStatus"
+                            @change="socketChange"
+                            >
                         </el-switch>
                     </div>
                     <div class="stats" slot="footer">
                         <span class="ti-reload"></span>
-                        在线
+                        {{ this.socketStat }}
                     </div>
                 </stats-card>
             </div>
@@ -95,19 +97,22 @@
                     <span slot="footer">
                         <i class="ti-check"></i> Data information certified
                     </span>
-                    <div slot="legend">
-                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                    </div>
+                    <!--<div slot="legend">-->
+                        <!--<i class="fa fa-circle text-info"></i> Tesla Model S-->
+                        <!--<i class="fa fa-circle text-warning"></i> BMW 5 Series-->
+                    <!--</div>-->
                 </chart-card>
             </div>
         </div>
     </div>
 </template>
 <script>
+
 import { StatsCard, ChartCard } from "@/components/index";
 import Chartist from "chartist";
 import temApi from '@/api/temperature_humidity.js';
+import socketApi from '@/api/socket.js'
+
 export default {
     components: {
         StatsCard,
@@ -119,6 +124,7 @@ export default {
     data() {
         return {
             socketStatus: 1,
+            socketStat: '在线',
             temperature: {
                 data: 0,
                 getTime: '温度计离线'
@@ -162,6 +168,20 @@ export default {
                 this.humidity.data = data.humidity;
                 this.humidity.getTime = data.time;
             })
+        },
+        socketChange() {
+            console.log("测试");
+            console.log(this.socketStatus);
+            if (this.socketStatus === true) {
+                socketApi.changeSocketOn().then(({ data }) => {
+                    this.socketStat = '插座开启'
+                })
+            }
+            if (this.socketStatus === false) {
+                socketApi.changeSocketOff().then(({ data }) => {
+                    this.socketStat = '插座关闭'
+                })
+            }
         }
     },
     mounted() {

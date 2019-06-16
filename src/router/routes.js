@@ -12,6 +12,7 @@ import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
 import TableList from "@/pages/TableList.vue";
 import TestPage from "@/pages/TestPage.vue";
+import IntelligentScene from "@/pages/IntelligentScene/index.vue"
 
 const routes = [
     {
@@ -38,6 +39,11 @@ const routes = [
                 path: "camera",
                 name: "camera",
                 component: Camera
+            },
+            {
+                path: "intelligent-scene",
+                name: "intelligent-scene",
+                component: IntelligentScene
             },
             {
                 path: "icons",

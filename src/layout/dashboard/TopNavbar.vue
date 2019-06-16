@@ -15,7 +15,7 @@
             </button>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" @click="getStatus">
                         <a href="#" class="nav-link">
                             <i class="ti-panel"></i>
                             <p>状态</p>
@@ -72,6 +72,12 @@ export default {
         },
         hideSidebar() {
             this.$sidebar.displaySidebar(false);
+        },
+        getStatus() {
+            this.$message({
+                message: '恭喜你，这是一条成功消息',
+                type: 'success'
+            });
         }
     }
 };

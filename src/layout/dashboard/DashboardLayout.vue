@@ -7,7 +7,7 @@
                 <sidebar-link to="/socket" name="智能插座" icon="ti-plug" />
                 <sidebar-link to="/camera" name="云台摄像头" icon="ti-camera"/>
                 <sidebar-link to="/table-list" name="实时温湿度" icon="ti-dashboard"/>
-                <sidebar-link to="/typography" name="情景模式" icon="ti-home"/>
+                <sidebar-link to="/intelligent-scene" name="智能场景" icon="ti-home"/>
                 <sidebar-link to="/icons" name="设置" icon="ti-settings" />
                 <!--<sidebar-link to="/maps" name="Map" icon="ti-map" />-->
                 <!--<sidebar-link to="/test-page" name="TestPage" icon="ti-clipboard"/>-->
